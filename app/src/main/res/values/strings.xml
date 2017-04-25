@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My CPHos</string>
+    <string name="login">ลงชื่อเข้าใช้งาน</string>
 </resources>
