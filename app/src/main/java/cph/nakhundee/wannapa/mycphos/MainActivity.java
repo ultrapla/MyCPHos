@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Controller สามารถคลิ๊กได้ ปุ่ม
         controller();
 
+
     }   // นี Main Method ่คือ method หลัก
 
     private void controller() {
