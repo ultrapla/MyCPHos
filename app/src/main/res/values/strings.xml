@@ -4,4 +4,8 @@
     <string name="regis">สมัครสมาชิก</string>
     <string name="user">user :</string>
     <string name="password">Password :</string>
+    <string name="name">name</string>
+    <string name="regisuser">user</string>
+    <string name="regispassword">password</string>
+    <string name="rename">name</string>
 </resources>

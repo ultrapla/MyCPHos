@@ -13,72 +13,79 @@
         android:layout_height="match_parent" />
 
     
-    <LinearLayout
-        android:padding="20dp"
-        android:background="#82ffffff"
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin"
-        android:layout_marginTop="51dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/cph_logo"
-            android:layout_width="@dimen/logo"
-            android:layout_height="@dimen/logo" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:padding="20dp"
+            android:background="#82ffffff"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginTop="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
 
             <ImageView
-                android:src="@mipmap/ic_user"
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/logo"
+                android:layout_height="@dimen/logo"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/cph_logo" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@mipmap/ic_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/edtUser"
+                    android:inputType="text"
+                    android:hint="@string/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@mipmap/ic_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:inputType="textPassword"
+                    android:hint="@string/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/textNewRegis"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/h2"
+                android:text="@string/regis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/edtUser"
-                android:inputType="text"
-                android:hint="@string/user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@mipmap/ic_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/edtPassword"
-                android:inputType="textPassword"
-                android:hint="@string/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <TextView
-            android:clickable="true"
-            android:id="@+id/textNewRegis"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/h2"
-            android:text="@string/regis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+    </ScrollView>
     
 
     <Button
