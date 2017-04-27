@@ -3,6 +3,7 @@ package cph.nakhundee.wannapa.mycphos;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,11 +71,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             } else {
                 //no space
+                checkUserAnPass();
 
             }
 
 
         }
 
+    }
+
+    private void checkUserAnPass() {
+        try {
+
+            String urlJSON = "http://swiftcodingthai.com/cph/getDataWannapa.php";
+            GetData getData = new GetData(MainActivity.this);
+            getData.execute(urlJSON);
+            String strJSON = getData.get();
+            Log.d("27AprilV1", "JSON ==> " + strJSON);
+
+        } catch (Exception e) {
+            Log.d("27AprilV1", "e checkUser ==> " + e.toString());
+
+        }
     }
 }   // Main Class นี่คือคลาสหลัก
