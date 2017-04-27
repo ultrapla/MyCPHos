@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -108,6 +109,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Log.d("27AprilV1", "loginString(" + i1 + ") ==> " + loginStrings[i1]);
                     }
                 }
+            }
+
+
+            if (b) {
+                //User False
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("User False", "No This User in My Database");
+
+            } else if (passwordString.equals(loginStrings[3])) {
+                Toast.makeText(MainActivity.this, "Welcome " + loginStrings[1],   //Toast คือ การแจ้งเตือน
+                        Toast.LENGTH_SHORT).show(); // LENGTH_SHORT คือ โชว์ระยะสั้น
+
+            } else {
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("Password False", "Password False");
             }
 
         } catch (Exception e) {
