@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Explicit คือการประการศตัวแปร
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             passwordString = passwordEditText.getText().toString().trim();
 
             //check space มีความว่างหรือเปล่า
-            if (userString.equals("") || passwordString.equals("")) {
+            if (userString.equals("") || passwordString.equals("")) {  //passwordString.equals เช็คค่าว่างว่ามีค่าว่างไหม
                 //have space
                 MyAlert myAlert = new MyAlert(MainActivity.this);
                 myAlert.myDialog("Have Space","Please Fill Every Blank");
@@ -84,10 +87,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
 
             String urlJSON = "http://swiftcodingthai.com/cph/getDataWannapa.php";
+            boolean b = true;
+            String[] columnStrings = new String[]{"id", "Name", "User", "Password"};
+            String[] loginStrings = new String[columnStrings.length];
+
+
             GetData getData = new GetData(MainActivity.this);
             getData.execute(urlJSON);
             String strJSON = getData.get();
             Log.d("27AprilV1", "JSON ==> " + strJSON);
+
+            JSONArray jsonArray = new JSONArray(strJSON);
+
+            for (int i=0;i<jsonArray.length();i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (userString.equals(jsonObject.getString(columnStrings[2]))) {
+                    b = false;
+                    for (int i1=0;i1<columnStrings.length;i1++) {
+                        loginStrings[i1] = jsonObject.getString(columnStrings[i1]);
+                        Log.d("27AprilV1", "loginString(" + i1 + ") ==> " + loginStrings[i1]);
+                    }
+                }
+            }
 
         } catch (Exception e) {
             Log.d("27AprilV1", "e checkUser ==> " + e.toString());
