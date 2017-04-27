@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkUserAnPass() {
         try {
 
-            String urlJSON = "http://swiftcodingthai.com/cph/getDataWannapa.php";
+    //        String urlJSON = "http://swiftcodingthai.com/cph/getDataWannapa.php";
+
+            String urlJSON = "http://swiftcodingthai.com/cph/getDataMaster.php";
             boolean b = true;
             String[] columnStrings = new String[]{"id", "Name", "User", "Password"};
             String[] loginStrings = new String[columnStrings.length];
@@ -120,6 +122,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else if (passwordString.equals(loginStrings[3])) {
                 Toast.makeText(MainActivity.this, "Welcome " + loginStrings[1],   //Toast คือ การแจ้งเตือน
                         Toast.LENGTH_SHORT).show(); // LENGTH_SHORT คือ โชว์ระยะสั้น
+
+                Intent intent = new Intent(MainActivity.this, ServiceActivity.class);
+                intent.putExtra("Login", loginStrings);
+                startActivity(intent);
+                finish();
 
             } else {
                 MyAlert myAlert = new MyAlert(MainActivity.this);
