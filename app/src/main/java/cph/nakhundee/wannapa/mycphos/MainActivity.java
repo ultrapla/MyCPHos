@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText userEditText, passwordEditText;
     private TextView textView;
     private Button button;
+    private String userString, passwordString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // for buttom สำหัรบปุ่มสมัคร
         if (v == button) {
+            // Get Value From Edittext
+            userString = userEditText.getText().toString().trim();
+            passwordString = passwordEditText.getText().toString().trim();
+
+            //check space มีความว่างหรือเปล่า
+            if (userString.equals("") || passwordString.equals("")) {
+                //have space
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("Have Space","Please Fill Every Blank");
+
+            } else {
+                //no space
+
+            }
+
 
         }
 
