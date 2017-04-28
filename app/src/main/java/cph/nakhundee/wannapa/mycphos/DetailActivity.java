@@ -62,10 +62,32 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             nameTextView.setText(resultStrings[1]);
             dateTextView.setText(resultStrings[5]);
             detailTextView.setText(resultStrings[4]);
+            receiveTextView.setText(findNameReceive(resultStrings[3]));   //สร้างขึ้นมาเพื่อหาชื่อ รับค่า id มาแล้ว
 
         } catch (Exception e) {
             Log.d(tag, "e showView ==>" + e.toString());
         }
+    }
+
+    private String findNameReceive(String idReceive) {
+        String tag2 = "28AprilV2";
+        MyConstant myConstant = new MyConstant();
+        try {
+            GetPorductWhereQR getPorductWhereQR = new GetPorductWhereQR(DetailActivity.this);  // เรียกใช้คลาส เป็ฯ method
+            getPorductWhereQR.execute("id", idReceive, myConstant.getUrlGetUserWhereID());   //เรียกใช้ Method ตัวเล็ก
+            String strJSON = getPorductWhereQR.get();    // ประกาศ ตัวแปร strJSON มาเก็บ getPorductWhereQR ที่เรียกมา
+            Log.d(tag2, "JSON ==> " + strJSON);
+
+            JSONArray jsonArray = new JSONArray(strJSON);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+            return jsonObject.getString("Name");
+
+        } catch (Exception e) {
+            Log.d(tag2, "e findName ==> " + e.toString());
+            return null;
+        }
+
     }
 
     private void getValueFromIntent() {
