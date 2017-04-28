@@ -53,7 +53,7 @@ public class MyAdapter extends BaseAdapter{
 
         nameTextView.setText(nameStrings[position]);
         dateTextView.setText(dateStrings[position]);
-        detailTextView.setText(detailStrings[position]);
+        detailTextView.setText(createDetailShow(detailStrings[position]));   // สร้าง method กอีกครั้ง
 
 
 
@@ -61,5 +61,19 @@ public class MyAdapter extends BaseAdapter{
 
 
         return view;
+    }
+
+    private String createDetailShow(String detailString) {     // reture ค่า เป็น String (ในนี้คือ ค่าที่จะเอามาคำนวน)
+
+        String result = null;
+
+        if (detailString.length() >= 30) {
+
+            result = detailString.substring(0, 30) + " ...";
+        } else {
+            result = detailString;
+        }
+
+        return result;
     }
 } //main class
