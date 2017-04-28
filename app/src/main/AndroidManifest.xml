@@ -24,7 +24,8 @@
             android:name=".SignUpActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ServiceActivity" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".SplashScreen"></activity>
     </application>
 
 </manifest>
