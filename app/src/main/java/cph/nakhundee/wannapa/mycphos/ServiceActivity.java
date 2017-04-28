@@ -37,7 +37,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
         controller();   // เขียนแล้วต้องทำ imprement alt+Enter เลือก imprement อันที่ 2
 
-    } //main method
+    } //main method //
 
     @Override  // การสร้าง Override  คือการสือทอด method สร้างโดย alt+enter เลือก onActivityResult
     protected void onActivityResult(int requestCode,
