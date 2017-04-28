@@ -8,4 +8,5 @@
     <string name="regisuser">user</string>
     <string name="regispassword">password</string>
     <string name="rename">name</string>
+    <string name="receive">receive :</string>
 </resources>
